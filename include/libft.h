@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 11:27:23 by ehossain          #+#    #+#             */
-/*   Updated: 2025/03/29 14:09:28 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:50:34 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include "ft_printf.h"
-# include "get_next_line.h"
 # include <ctype.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -45,8 +44,8 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char *s, int fd);
+void				ft_putchar_fd(const char c, int fd);
+void				ft_putstr_fd(const char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				*ft_memset(void *s, int c, size_t n);

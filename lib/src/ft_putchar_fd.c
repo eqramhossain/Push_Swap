@@ -6,13 +6,13 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:33:41 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/21 13:33:45 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:49:10 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(const char c, int fd)
 {
 	write(fd, &c, 1);
 }

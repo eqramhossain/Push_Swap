@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 09:41:52 by ehossain          #+#    #+#             */
-/*   Updated: 2024/11/19 10:51:25 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:37:09 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (ptr_big[i] != '\0' && i < len)
 	{
 		j = 0;
-		while (ptr_little[j] == ptr_big[i + j] && (i + j) < len && \
-				ptr_big[i + j])
+		while (ptr_little[j] == ptr_big[i + j] && (i + j) < len && ptr_big[i
+				+ j])
 			j++;
 		if (ptr_little[j] == '\0')
 			return (ptr_big + i);
