@@ -6,7 +6,7 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 19:41:46 by ehossain          #+#    #+#              #
-#    Updated: 2025/04/12 16:46:54 by ehossain         ###   ########.fr        #
+#    Updated: 2025/04/15 04:22:56 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SOURCE = ${shell find ./src -name "*.c"}
 OBJ = ${SOURCE:.c=.o}
 LIBFT = ./lib/libft.a
 CC = cc
-FLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3
 MAKE = make --no-print-directory
 
 all: $(NAME)
