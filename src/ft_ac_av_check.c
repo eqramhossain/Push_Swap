@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:58:16 by ehossain          #+#    #+#             */
-/*   Updated: 2025/04/16 16:00:56 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/04/19 06:55:15 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ static void	ft_str_to_number(int ac, char **av)
 	while (ac > 0)
 	{
 		value = ft_atol(av[ac]);
-		if (value < INT_MIN || value > INT_MAX)
+		if ((value < (long)INT_MIN) || (value > (long)INT_MAX))
 			ft_print_error("There is a value more or less than INT_MIN/INT_MAX");
-		printf("value = %ld\n", value);
 		ac--;
 	}
 }
