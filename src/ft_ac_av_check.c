@@ -6,25 +6,35 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:58:16 by ehossain          #+#    #+#             */
-/*   Updated: 2025/04/19 06:55:15 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/04/30 23:05:53 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	ft_count_av(char **av);
 static void	ft_check_all_argv_is_integer(char **av);
-static void	ft_str_to_number(int ac, char **av);
+static void	ft_str_to_number(char **av);
 
-void	ft_ac_av_check(int ac, char **av)
+void	ft_ac_av_check(char **av)
 {
-	if (ac < 3)
-		ft_print_error("Expected 2 or more than 2 integer");
-	if (ft_isdigit(av[1][0]) == 0)
-		ft_print_error("Only integer is accepted");
-	if (ft_strnstr(av[1], "--", ft_strlen(av[1])))
-		ft_print_error("Double minus sign found");
+	int	ac;
+
+	ac = ft_count_av(av);
+	if (ac < 2)
+		ft_print_error("There is only one integer.");
 	ft_check_all_argv_is_integer(av);
-	ft_str_to_number(ac, av);
+	ft_str_to_number(av);
+}
+
+static int	ft_count_av(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+		i++;
+	return (i);
 }
 
 static void	ft_check_all_argv_is_integer(char **av)
@@ -32,7 +42,7 @@ static void	ft_check_all_argv_is_integer(char **av)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		j = 0;
@@ -48,16 +58,17 @@ static void	ft_check_all_argv_is_integer(char **av)
 	}
 }
 
-static void	ft_str_to_number(int ac, char **av)
+static void	ft_str_to_number(char **av)
 {
 	long	value;
+	int		i;
 
-	ac = ac - 1;
-	while (ac > 0)
+	i = 0;
+	while (av[i])
 	{
-		value = ft_atol(av[ac]);
+		value = ft_atol(av[i]);
 		if ((value < (long)INT_MIN) || (value > (long)INT_MAX))
 			ft_print_error("There is a value more or less than INT_MIN/INT_MAX");
-		ac--;
+		i++;
 	}
 }

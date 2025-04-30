@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:29:32 by ehossain          #+#    #+#             */
-/*   Updated: 2025/04/19 06:54:01 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/04/30 19:28:27 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,36 @@
 # include "libft.h"
 # include "limits.h"
 
+/* Colorful print message */
+# define RED "\e[31m"
+# define GREEN "\e[32m"
+# define END "\e[0m"
+
 typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*next;
 }					t_stack;
 
-/* Colorful print message */
-# define RED "\e[31m"
-# define GREEN "\e[32m"
-# define END "\e[0m"
+/* movements to find the lowest cost of sorting the list */
+void				ft_sa(t_stack **stack_a);
+void				ft_sb(t_stack **stack_b);
+void				ft_ss(t_stack **stack_a, t_stack **stack_b);
+void				ft_pa(t_stack **stack_a, t_stack **stack_b);
+void				ft_pb(t_stack **stack_a, t_stack **stack_b);
+void				ft_ra(t_stack **stack_a);
+void				ft_rb(t_stack **stack_b);
+void				ft_rr(t_stack **stack_a, t_stack **stack_b);
+void				ft_rra(t_stack **stack_a);
+void				ft_rrb(t_stack **stack_b);
+void				ft_rrr(t_stack **stack_a, t_stack **stack_b);
 
 /* Error handler function */
 void				ft_print_error(const char *str);
 
 /* inisialize stack_a and check integer */
-void				ft_ac_av_check(int ac, char **av);
-t_stack				*ft_stack_init(int ac, char *av[]);
-
-long				ft_atol(const char *nptr);
+void				ft_ac_av_check(char **av);
+t_stack				*ft_stack_init(char *av[]);
+long				ft_atol(const char *nbr);
 
 #endif

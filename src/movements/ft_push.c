@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 15:53:26 by ehossain          #+#    #+#             */
-/*   Updated: 2025/04/27 11:59:50 by ehossain         ###   ########.fr       */
+/*   Created: 2025/04/27 16:25:25 by ehossain          #+#    #+#             */
+/*   Updated: 2025/04/30 16:49:15 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atol(const char *nbr)
+void	ft_pa(t_stack **stack_a, t_stack **stack_b)
 {
-	long	i;
-	long	result;
-	long	signe;
+	t_stack	*head;
+	t_stack	*next;
 
-	i = 0;
-	result = 0;
-	signe = 1;
-	while ((nbr[i] >= 9 && nbr[i] <= 13) || nbr[i] == 32)
-		i++;
-	if (nbr[i] == '+' || nbr[i] == '-')
+	if (*stack_b)
 	{
-		if (nbr[i] == '-')
-			signe = signe * -1;
-		i++;
+		head = *stack_b;
+		next = (*stack_b)->next;
+		head->next = *stack_a;
+		*stack_a = head;
+		*stack_b = next;
 	}
-	while (nbr[i] != '\0' && nbr[i] >= '0' && nbr[i] <= '9')
+}
+
+void	ft_pb(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*head;
+	t_stack	*next;
+
+	if (*stack_a)
 	{
-		result = result * 10 + (nbr[i] - '0');
-		i++;
+		head = *stack_a;
+		next = (*stack_a)->next;
+		head->next = *stack_b;
+		*stack_b = head;
+		*stack_a = next;
 	}
-	return (result * signe);
 }
