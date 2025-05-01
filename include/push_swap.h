@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:29:32 by ehossain          #+#    #+#             */
-/*   Updated: 2025/04/30 19:28:27 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/01 16:04:32 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include "libft.h"
 # include "limits.h"
 
-/* Colorful print message */
-# define RED "\e[31m"
-# define GREEN "\e[32m"
-# define END "\e[0m"
+// /* Colorful print message */
+// # define RED "\e[31m"
+// # define GREEN "\e[32m"
+// # define END "\e[0m"
 
 typedef struct s_stack
 {
@@ -41,11 +41,17 @@ void				ft_rrb(t_stack **stack_b);
 void				ft_rrr(t_stack **stack_a, t_stack **stack_b);
 
 /* Error handler function */
-void				ft_print_error(const char *str);
+void				ft_error_exit(void);
 
 /* inisialize stack_a and check integer */
-void				ft_ac_av_check(char **av);
+int					ft_ac_av_check(char **av);
 t_stack				*ft_stack_init(char *av[]);
 long				ft_atol(const char *nbr);
+
+/* Function that free the allocated spaces */
+void				ft_free_str(char **str);
+
+/* Other helper functions */
+int					ft_count_av(char **av);
 
 #endif

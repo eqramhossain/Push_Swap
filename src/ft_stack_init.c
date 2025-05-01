@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 02:39:42 by ehossain          #+#    #+#             */
-/*   Updated: 2025/04/30 19:34:07 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/01 16:10:33 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static t_stack	*ft_lstnew(int value);
 static t_stack	*ft_lstadd_head(t_stack *head, int value);
-static int		ft_len(char **av);
 static int		ft_is_duplicate(t_stack *head, int value);
 
 t_stack	*ft_stack_init(char **av)
@@ -24,16 +23,14 @@ t_stack	*ft_stack_init(char **av)
 	int		len;
 
 	stack_a = NULL;
-	len = ft_len(av) - 1;
+	len = ft_count_av(av) - 1;
 	while (len >= 0)
 	{
 		value = ft_atol(av[len]);
-		if ((value < INT_MIN) || (value > INT_MAX))
-			ft_print_error("There is a value more or less than INT_MIN/INT_MAX");
 		if (ft_is_duplicate(stack_a, value) == 0)
 			stack_a = ft_lstadd_head(stack_a, value);
 		else
-			ft_print_error("There is a duplicate");
+			ft_error_exit();
 		len--;
 	}
 	return (stack_a);
@@ -77,14 +74,4 @@ static int	ft_is_duplicate(t_stack *head, int value)
 		current = current->next;
 	}
 	return (0);
-}
-
-static int	ft_len(char **av)
-{
-	int	i;
-
-	i = 0;
-	while (av[i])
-		i++;
-	return (i);
 }
