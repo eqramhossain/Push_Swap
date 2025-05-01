@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_init.c                                    :+:      :+:    :+:   */
+/*   ft_create_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 02:39:42 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/01 16:10:33 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/01 18:30:49 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_stack	*ft_lstnew(int value);
 static t_stack	*ft_lstadd_head(t_stack *head, int value);
 static int		ft_is_duplicate(t_stack *head, int value);
 
-t_stack	*ft_stack_init(char **av)
+t_stack	*ft_create_stack(char **av)
 {
 	t_stack	*stack_a;
 	long	value;
