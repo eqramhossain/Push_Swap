@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:30:17 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/01 14:32:21 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/02 03:31:21 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	ft_free_str(char **str)
 		free(str[i]);
 		i++;
 	}
-	free(str);
 }

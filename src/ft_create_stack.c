@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 02:39:42 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/01 18:30:49 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/02 06:22:38 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 static t_stack	*ft_lstnew(int value);
 static t_stack	*ft_lstadd_head(t_stack *head, int value);
-static int		ft_is_duplicate(t_stack *head, int value);
+static int		ft_is_duplicate(t_stack **stack_a);
+static void		ft_error_dup(t_stack **stack_a, char **av, int is_malloced);
 
-t_stack	*ft_create_stack(char **av)
+t_stack	*ft_create_stack(char **av, int is_malloced)
 {
 	t_stack	*stack_a;
 	long	value;
@@ -27,12 +28,11 @@ t_stack	*ft_create_stack(char **av)
 	while (len >= 0)
 	{
 		value = ft_atol(av[len]);
-		if (ft_is_duplicate(stack_a, value) == 0)
-			stack_a = ft_lstadd_head(stack_a, value);
-		else
-			ft_error_exit();
+		stack_a = ft_lstadd_head(stack_a, value);
 		len--;
 	}
+	if (ft_is_duplicate(&stack_a))
+		ft_error_dup(&stack_a, av, is_malloced);
 	return (stack_a);
 }
 
@@ -62,16 +62,34 @@ static t_stack	*ft_lstadd_head(t_stack *head, int value)
 	return (new_node);
 }
 
-static int	ft_is_duplicate(t_stack *head, int value)
+static int	ft_is_duplicate(t_stack **stack_a)
 {
 	t_stack	*current;
+	t_stack	*tmp;
 
-	current = head;
+	current = *stack_a;
 	while (current != NULL)
 	{
-		if (current->value == value)
-			return (1);
+		tmp = current->next;
+		while (tmp != NULL)
+		{
+			if (tmp->value == current->value)
+				return (1);
+			tmp = tmp->next;
+		}
 		current = current->next;
 	}
 	return (0);
+}
+
+static void	ft_error_dup(t_stack **stack_a, char **av, int is_malloced)
+{
+	if (is_malloced)
+	{
+		ft_free_str(av);
+		free(av);
+	}
+	ft_delete_stack(stack_a);
+	ft_putstr_fd("Error:\n", 2);
+	exit(EXIT_FAILURE);
 }

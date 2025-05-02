@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 18:37:50 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/01 18:38:29 by ehossain         ###   ########.fr       */
+/*   Created: 2025/04/05 19:37:02 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/02 05:49:43 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(char **str, t_stack **stack_a, t_stack **stack_b)
+void	ft_error_exit(void)
 {
+	ft_putstr_fd("Error:\n", 2);
+	exit(EXIT_FAILURE);
 }
