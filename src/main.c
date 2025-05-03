@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:29:22 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/02 10:36:18 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:41:53 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(int ac, char *av[])
 	}
 	else
 	{
-		ft_ac_av_check(av + 1, 0);
+		av++;
+		ft_ac_av_check(av, 0);
 		stack_a = ft_create_stack(av, 0);
 	}
 	ft_printlst(&stack_a);

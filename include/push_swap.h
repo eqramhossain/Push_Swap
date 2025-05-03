@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:29:32 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/02 06:10:00 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/02 10:41:10 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void				ft_free_str(char **str);
 void				ft_delete_stack(t_stack **lst);
 
 /* Error handler function */
-void				ft_error_exit(void);
-void				ft_error_exit_free(t_stack **stack_a, char **av);
 
 /* Checker and helper function */
 void				ft_ac_av_check(char **av, int is_malloced);
