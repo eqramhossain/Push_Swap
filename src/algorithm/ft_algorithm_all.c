@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_algorithm_all.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/02 02:40:52 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/04 06:07:17 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/06 09:54:15 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/06 09:55:06 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_is_sorted(t_stack *head)
+void	ft_algorithm_all(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*current;
-	t_stack	*next;
-
-	current = head;
-	while (current->next != NULL)
-	{
-		next = current->next;
-		if (current->value < next->value)
-			current = current->next;
-		else
-			return (0);
-	}
-	return (1);
+	(void)stack_a;
+	(void)stack_b;
 }

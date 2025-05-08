@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_algorithm_five.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/05 19:37:02 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/02 05:49:43 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/06 09:55:20 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/06 09:55:31 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error_exit(void)
+void	ft_algorithm_five(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_putstr_fd("Error:\n", 2);
-	exit(EXIT_FAILURE);
+	(void)stack_a;
+	(void)stack_b;
 }

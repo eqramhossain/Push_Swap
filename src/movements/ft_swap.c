@@ -6,13 +6,13 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:37:28 by ehossain          #+#    #+#             */
-/*   Updated: 2025/04/27 16:35:58 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/06 09:53:01 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_stack **stack_a)
+void	ft_sa(t_stack **stack_a, int print)
 {
 	t_stack	*current;
 	t_stack	*next;
@@ -26,9 +26,11 @@ void	ft_sa(t_stack **stack_a)
 	current->next = next_next;
 	next->next = current;
 	(*stack_a) = next;
+	if (print)
+		write(1, "sa\n", 3);
 }
 
-void	ft_sb(t_stack **stack_b)
+void	ft_sb(t_stack **stack_b, int print)
 {
 	t_stack	*current;
 	t_stack	*next;
@@ -42,10 +44,14 @@ void	ft_sb(t_stack **stack_b)
 	current->next = next_next;
 	next->next = current;
 	(*stack_b) = next;
+	if (print)
+		write(1, "sb\n", 3);
 }
 
-void	ft_ss(t_stack **stack_a, t_stack **stack_b)
+void	ft_ss(t_stack **stack_a, t_stack **stack_b, int print)
 {
-	ft_sa(stack_a);
-	ft_sb(stack_b);
+	ft_sa(stack_a, 0);
+	ft_sb(stack_b, 0);
+	if (print)
+		write(1, "ss\n", 3);
 }

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/02 02:40:52 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/04 06:07:17 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/05 20:21:12 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/05 20:22:47 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_is_sorted(t_stack *head)
+int	ft_lstsize(t_stack *head)
 {
+	int		i;
 	t_stack	*current;
-	t_stack	*next;
 
+	i = 0;
 	current = head;
-	while (current->next != NULL)
+	while (current != NULL)
 	{
-		next = current->next;
-		if (current->value < next->value)
-			current = current->next;
-		else
-			return (0);
+		current = current->next;
+		i++;
 	}
-	return (1);
+	return (i);
 }

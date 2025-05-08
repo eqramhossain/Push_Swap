@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
+/*   ft_free_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/02 02:40:52 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/04 06:07:17 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/04 09:05:07 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/04 09:07:11 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_is_sorted(t_stack *head)
+void	ft_free_exit(t_stack **stack_a, char **av, int is_malloced)
 {
-	t_stack	*current;
-	t_stack	*next;
-
-	current = head;
-	while (current->next != NULL)
+	if (is_malloced)
 	{
-		next = current->next;
-		if (current->value < next->value)
-			current = current->next;
-		else
-			return (0);
+		ft_free_str(av);
+		free(av);
 	}
-	return (1);
+	ft_delete_stack(stack_a);
+	exit(EXIT_FAILURE);
 }

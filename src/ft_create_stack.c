@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 02:39:42 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/02 06:22:38 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/08 12:51:21 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_stack	*ft_lstnew(int value);
 static t_stack	*ft_lstadd_head(t_stack *head, int value);
 static int		ft_is_duplicate(t_stack **stack_a);
-static void		ft_error_dup(t_stack **stack_a, char **av, int is_malloced);
+static void		ft_error(t_stack **stack_a, char **av, int is_malloced);
 
 t_stack	*ft_create_stack(char **av, int is_malloced)
 {
@@ -32,7 +32,14 @@ t_stack	*ft_create_stack(char **av, int is_malloced)
 		len--;
 	}
 	if (ft_is_duplicate(&stack_a))
-		ft_error_dup(&stack_a, av, is_malloced);
+		ft_error(&stack_a, av, is_malloced);
+	if (ft_is_sorted(stack_a))
+		ft_free_exit(&stack_a, av, is_malloced);
+	if (is_malloced)
+	{
+		ft_free_str(av);
+		free(av);
+	}
 	return (stack_a);
 }
 
@@ -82,7 +89,7 @@ static int	ft_is_duplicate(t_stack **stack_a)
 	return (0);
 }
 
-static void	ft_error_dup(t_stack **stack_a, char **av, int is_malloced)
+static void	ft_error(t_stack **stack_a, char **av, int is_malloced)
 {
 	if (is_malloced)
 	{
