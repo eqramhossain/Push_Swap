@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algorithm_three.c                               :+:      :+:    :+:   */
+/*   ft_order_three.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:55:48 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/08 23:36:49 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/12 13:37:44 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // static void	ft_printlst(t_stack **lst);
 
-void	ft_algorithm_three(t_stack **stack_a)
+void	ft_order_three(t_stack **stack_a)
 {
 	int	one;
 	int	two;
@@ -39,7 +39,6 @@ void	ft_algorithm_three(t_stack **stack_a)
 		ft_sa(stack_a, 1);
 		ft_ra(stack_a, 1);
 	}
-	ft_delete_stack(stack_a);
 }
 
 // static void	ft_printlst(t_stack **lst)

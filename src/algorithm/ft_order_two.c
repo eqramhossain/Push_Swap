@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algorithm_all.c                                 :+:      :+:    :+:   */
+/*   ft_order_two.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 09:54:15 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/06 09:55:06 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/06 08:21:33 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/12 13:38:17 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_algorithm_all(t_stack **stack_a, t_stack **stack_b)
+void	ft_order_two(t_stack **stack_a)
 {
-	(void)stack_a;
-	(void)stack_b;
+	ft_sa(stack_a, 1);
 }
