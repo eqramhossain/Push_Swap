@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_find_smallest_biggest.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/10 12:13:53 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/14 16:25:53 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/20 12:38:38 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/20 12:39:03 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,35 +42,4 @@ int	ft_find_biggest(t_stack *head)
 		current = current->next;
 	}
 	return (biggest);
-}
-
-t_stack	*ft_find_node(t_stack *head, int smallest)
-{
-	t_stack	*tmp;
-
-	tmp = head;
-	while (tmp != NULL)
-	{
-		if (tmp->value == smallest)
-			return (tmp);
-		tmp = tmp->next;
-	}
-	return (NULL);
-}
-
-void	ft_move_to_top(t_stack **stack_a, int smallest)
-{
-	t_stack	*tmp;
-
-	tmp = ft_find_node(*stack_a, smallest);
-	if (tmp->close_to_top)
-	{
-		while (*stack_a != tmp)
-			ft_ra(stack_a, 1);
-	}
-	else
-	{
-		while (*stack_a != tmp)
-			ft_rra(stack_a, 1);
-	}
 }

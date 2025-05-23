@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_position.c                                      :+:      :+:    :+:   */
+/*   ft_find_pos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 19:50:02 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/14 16:07:06 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/20 16:07:48 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/20 17:09:51 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_positioning(t_stack *head)
+t_stack	*ft_find_pos(t_stack *head, int pos)
 {
-	int		i;
-	int		median;
-	t_stack	*current;
+	t_stack	*tmp;
 
-	i = 0;
-	median = ft_lstsize(head) / 2;
-	current = head;
-	while (current)
+	tmp = head;
+	while (tmp)
 	{
-		if (i <= median)
-			current->close_to_top = 1;
-		else
-			current->close_to_top = 0;
-		current->position = i;
-		current = current->next;
-		i++;
+		if (tmp->pos == pos)
+			return (tmp);
+		tmp = tmp->next;
 	}
+	return (NULL);
 }

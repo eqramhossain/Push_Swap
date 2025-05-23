@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:55:20 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/14 16:27:37 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:34:07 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_order_five(t_stack **stack_a, t_stack **stack_b)
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		smallest = ft_find_smallest(*stack_a);
-		ft_move_to_top(stack_a, smallest);
+		ft_move_value_to_top(stack_a, smallest);
 		ft_pb(stack_a, stack_b, 1);
 	}
 	if (ft_is_sorted(*stack_b))

@@ -6,13 +6,11 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:55:48 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/12 13:37:44 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:39:49 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// static void	ft_printlst(t_stack **lst);
 
 void	ft_order_three(t_stack **stack_a)
 {
@@ -40,15 +38,3 @@ void	ft_order_three(t_stack **stack_a)
 		ft_ra(stack_a, 1);
 	}
 }
-
-// static void	ft_printlst(t_stack **lst)
-// {
-// 	t_stack	*head;
-//
-// 	head = *lst;
-// 	while (head)
-// 	{
-// 		printf("[%d]-->", head->value);
-// 		head = head->next;
-// 	}
-// }

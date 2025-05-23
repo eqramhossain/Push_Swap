@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_order_four.c                                    :+:      :+:    :+:   */
+/*   ft_order_big.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 16:27:57 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/20 15:34:23 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/06 09:54:15 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/23 19:54:18 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_order_four(t_stack **stack_a, t_stack **stack_b)
+void	ft_order_big(t_stack **stack_a, t_stack **stack_b)
 {
-	int	smallest;
+	int			size;
+	t_min_max	data;
 
-	smallest = 0;
-	while (ft_lstsize(*stack_a) > 3)
+	size = ft_lstsize(*stack_a);
+	data.max_index = size;
+	printf("data.max_index = %d\n", data.max_index);
+	while (size > 3)
 	{
-		smallest = ft_find_smallest(*stack_a);
-		ft_move_value_to_top(stack_a, smallest);
 		ft_pb(stack_a, stack_b, 1);
+		size--;
 	}
 	ft_order_three(stack_a);
-	ft_pa(stack_a, stack_b, 1);
+	while (stack_b != NULL)
+	{
+		ft_pa(stack_a, stack_b, 1);
+	}
 }
