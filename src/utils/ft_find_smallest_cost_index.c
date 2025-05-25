@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_order_four.c                                    :+:      :+:    :+:   */
+/*   ft_find_smallest_cost_index.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/14 16:27:57 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/24 12:27:03 by ehossain         ###   ########.fr       */
+/*   Created: 2025/05/25 22:14:37 by ehossain          #+#    #+#             */
+/*   Updated: 2025/05/25 22:23:39 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_order_four(t_stack **stack_a, t_stack **stack_b)
+int	ft_find_smallest_cost_index(t_stack *stack_b)
 {
-	int	index;
+	int		smallest;
+	t_stack	*tmp;
 
-	index = 0;
-	while (ft_lstsize(*stack_a) > 3)
+	smallest = INT_MAX;
+	tmp = stack_b;
+	if (!stack_b)
+		return (0);
+	while (tmp)
 	{
-		index = ft_find_smallest_index(*stack_a);
-		ft_move_index_to_top(stack_a, index);
-		ft_pb(stack_a, stack_b, 1);
+		if (tmp->cost < smallest)
+			smallest = tmp->cost;
+		tmp = tmp->next;
 	}
-	ft_order_three(stack_a);
-	ft_pa(stack_a, stack_b, 1);
+	tmp = stack_b;
+	while (tmp)
+	{
+		if (smallest == tmp->cost)
+			break ;
+		tmp = tmp->next;
+	}
+	return (tmp->index);
 }

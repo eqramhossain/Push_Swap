@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:29:32 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/23 19:51:00 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/25 22:21:17 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ typedef struct s_stack
 {
 	int value;            // the number/integer itself
 	int pos;              // current position in the stack (starting form 0)
-	int index;            // position should after the sort (starting form 1)
+	int index;            // position in sorted array
 	int close_to_top;     // true or false (1 or 0)
-	int target;           // target value
+	int i_target;         // index of target in other stack
 	int cost;             // cost of moving the values form stack_a to stack_b
 	struct s_stack *next; // pointer to the next node
 	struct s_stack *prev; // pointer to the previous node
@@ -73,11 +73,12 @@ int		ft_is_sorted(t_stack *stack_a);
 int		ft_lstsize(t_stack *head);
 void	ft_positioning(t_stack *head);
 void	ft_index_positioning(t_stack *head);
-int		ft_find_smallest(t_stack *head);
-int		ft_find_biggest(t_stack *head);
+int		ft_find_smallest_index(t_stack *head);
+int		ft_find_biggest_index(t_stack *head);
+t_stack	*ft_find_node_by_pos(t_stack *head, int pos);
+t_stack	*ft_find_node_by_index(t_stack *head, int index);
 void	ft_move_value_to_top(t_stack **stack_a, int value);
 void	ft_move_index_to_top(t_stack **stack_a, int index);
-t_stack	*ft_find_pos(t_stack *head, int pos);
-t_stack	*ft_find_index(t_stack *head, int index);
+int		ft_find_smallest_cost_index(t_stack *stack_b);
 
 #endif
