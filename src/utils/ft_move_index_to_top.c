@@ -6,11 +6,15 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 13:04:55 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/20 15:36:50 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/26 15:19:21 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// this function help to find a specific node by it's index
+// and move it to the top(head) of the stack so it become the head of the stack
+// with doing the minimum moves
 
 static t_stack	*ft_find_node(t_stack *head, int index);
 

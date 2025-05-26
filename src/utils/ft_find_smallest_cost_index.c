@@ -6,11 +6,16 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 22:14:37 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/25 22:23:39 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/26 15:10:44 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// find the smallest cost index number
+// imagine if there is 3 number in stack_b 3 2 1
+// and 3 has the smallest cost
+// this function will find the index of the 3
 
 int	ft_find_smallest_cost_index(t_stack *stack_b)
 {

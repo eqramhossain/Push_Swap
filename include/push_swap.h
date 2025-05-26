@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:29:32 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/25 22:21:17 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/26 15:32:04 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ typedef struct s_stack
 	struct s_stack *next; // pointer to the next node
 	struct s_stack *prev; // pointer to the previous node
 }		t_stack;
-
-typedef struct s_min_max
-{
-	int	min_index;
-	int	max_index;
-}		t_min_max;
 
 /* movements to follow for sorting algorithm */
 void	ft_sa(t_stack **stack_a, int print);
