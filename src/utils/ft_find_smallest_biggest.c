@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 12:38:38 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/24 12:26:53 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/26 13:42:47 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	ft_find_smallest_index(t_stack *head)
 	int		smallest;
 
 	current = head;
-	smallest = current->index;
+	smallest = INT_MAX;
 	while (current != NULL)
 	{
-		if (smallest > current->index)
+		if (current->index < smallest)
 			smallest = current->index;
 		current = current->next;
 	}
@@ -34,10 +34,10 @@ int	ft_find_biggest_index(t_stack *head)
 	int		biggest;
 
 	current = head;
-	biggest = current->index;
+	biggest = 0;
 	while (current != NULL)
 	{
-		if (biggest < current->index)
+		if (current->index > biggest)
 			biggest = current->index;
 		current = current->next;
 	}

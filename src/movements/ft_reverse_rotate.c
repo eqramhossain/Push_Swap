@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 18:53:12 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/06 08:50:52 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/26 14:53:21 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_rrb(t_stack **stack_b, int print)
 	tmp->next = old_head;
 	(*stack_b) = tmp;
 	if (print)
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b, int print)
