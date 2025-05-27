@@ -6,7 +6,7 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 19:41:46 by ehossain          #+#    #+#              #
-#    Updated: 2025/04/15 04:22:56 by ehossain         ###   ########.fr        #
+#    Updated: 2025/05/27 18:40:24 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,8 +41,9 @@ fclean : clean
 	@rm -f push_swap
 	@echo "$(RED)push_swap and libft removed$(END)"
 
-re: fclean all
+re: fclean 
 	@$(MAKE) re -C lib
+	@$(MAKE) all
 
 norm:
 	norminette lib
