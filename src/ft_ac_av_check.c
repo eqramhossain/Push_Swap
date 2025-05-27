@@ -82,6 +82,6 @@ static void	ft_error_ac_av(char **av, int is_malloced)
 		ft_free_str(av);
 		free(av);
 	}
-	ft_putstr_fd("Error:\n", 2);
+	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }

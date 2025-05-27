@@ -97,6 +97,6 @@ static void	ft_error(t_stack **stack_a, char **av, int is_malloced)
 		free(av);
 	}
 	ft_delete_stack(stack_a);
-	ft_putstr_fd("Error:\n", 2);
+	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
