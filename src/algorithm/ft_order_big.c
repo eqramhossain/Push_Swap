@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:54:15 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/26 15:33:53 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/28 18:39:39 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_set_target(t_stack *stack_a, t_stack *stack_b);
 static void	ft_calculate_move_cost(t_stack *stack_a, t_stack *stack_b);
 static void	ft_move(t_stack **stack_a, t_stack **stack_b, int min_index);
 static void	ft_move_node_to_up(t_stack **stack_a, t_stack **stack_b,
-				t_stack **target_node, t_stack **cheapest_node);
+				t_stack *target_node, t_stack *cheapest_node);
 
 void	ft_order_big(t_stack **stack_a, t_stack **stack_b)
 {
@@ -48,29 +48,28 @@ static void	ft_set_target(t_stack *stack_a, t_stack *stack_b)
 {
 	int		biggest;
 	int		target_index;
-	t_stack	*current_stack_a;
-	t_stack	*current_stack_b;
+	t_stack	*a;
+	t_stack	*b;
 
-	current_stack_b = stack_b;
-	while (current_stack_b)
+	b = stack_b;
+	while (b)
 	{
-		current_stack_a = stack_a;
+		a = stack_a;
 		biggest = INT_MAX;
-		while (current_stack_a)
+		while (a)
 		{
-			if (current_stack_a->index > current_stack_b->index
-				&& current_stack_a->index < biggest)
+			if (a->index > b->index && a->index < biggest)
 			{
-				biggest = current_stack_a->index;
-				target_index = current_stack_a->index;
+				biggest = a->index;
+				target_index = a->index;
 			}
-			current_stack_a = current_stack_a->next;
+			a = a->next;
 		}
 		if (biggest == INT_MAX)
-			current_stack_b->i_target = ft_find_smallest_index(stack_a);
+			b->i_target = ft_find_smallest_index(stack_a);
 		else
-			current_stack_b->i_target = target_index;
-		current_stack_b = current_stack_b->next;
+			b->i_target = target_index;
+		b = b->next;
 	}
 }
 
@@ -95,26 +94,31 @@ static void	ft_calculate_move_cost(t_stack *stack_a, t_stack *stack_b)
 			current_node->cost = current_node->pos;
 		else if (!current_node->close_to_top)
 			current_node->cost = size_b - current_node->pos;
-		// store the total cost of moving the two node in stack_a and stack_b
 		current_node->cost = current_node->cost + target_node->cost;
 		current_node = current_node->next;
 	}
 }
 
 static void	ft_move_node_to_up(t_stack **stack_a, t_stack **stack_b,
-		t_stack **target_node, t_stack **cheapest_node)
+		t_stack *target_node, t_stack *cheapest_node)
 {
-	while (*stack_a != *target_node)
+	if ((cheapest_node->close_to_top == 1) && (target_node->close_to_top == 1))
+		while ((*stack_a != target_node) && (*stack_b != cheapest_node))
+			ft_rr(stack_a, stack_b, 1);
+	if ((cheapest_node->close_to_top == 0) && (target_node->close_to_top == 0))
+		while ((*stack_a != target_node) && (*stack_b != cheapest_node))
+			ft_rrr(stack_a, stack_b, 1);
+	while (*stack_a != target_node)
 	{
-		if ((*target_node)->close_to_top)
+		if (target_node->close_to_top)
 			ft_ra(stack_a, 1);
 		else
 			ft_rra(stack_a, 1);
 		ft_positioning(*stack_a);
 	}
-	while (*stack_b != *cheapest_node)
+	while (*stack_b != cheapest_node)
 	{
-		if ((*cheapest_node)->close_to_top)
+		if (cheapest_node->close_to_top)
 			ft_rb(stack_b, 1);
 		else
 			ft_rrb(stack_b, 1);
@@ -131,5 +135,5 @@ static void	ft_move(t_stack **stack_a, t_stack **stack_b, int min_index)
 	target_node = ft_find_node_by_index(*stack_a, cheapest_node->i_target);
 	ft_positioning(*stack_a);
 	ft_positioning(*stack_b);
-	ft_move_node_to_up(stack_a, stack_b, &target_node, &cheapest_node);
+	ft_move_node_to_up(stack_a, stack_b, target_node, cheapest_node);
 }

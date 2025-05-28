@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 12:58:16 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/05 16:34:58 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/28 16:05:51 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static void	ft_is_all_integer(char **av, int is_malloced)
 		while (av[i][j])
 		{
 			if (j == 0 && av[i][j] == '-')
+				j++;
+			if (av[i][j] == '+')
 				j++;
 			if (ft_isdigit(av[i][j]) == 0)
 				ft_error_ac_av(av, is_malloced);
