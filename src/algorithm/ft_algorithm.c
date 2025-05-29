@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 17:33:03 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/26 13:02:50 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/29 11:52:49 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void	ft_algorithm(t_stack **stack_a, t_stack **stack_b)
 		ft_order_five(stack_a, stack_b);
 	if (size > 5)
 		ft_order_big(stack_a, stack_b);
+	return ;
 }

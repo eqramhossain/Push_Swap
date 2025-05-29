@@ -6,7 +6,7 @@
 #    By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/23 14:36:30 by ehossain          #+#    #+#              #
-#    Updated: 2025/05/27 22:49:16 by ehossain         ###   ########.fr        #
+#    Updated: 2025/05/29 10:45:21 by ehossain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ SOURCE = ./src/ft_printf/ft_find_format.c \
 NAME = libft.a
 OBJECT = ${SOURCE:.c=.o}
 INCLUDE = ../include
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)

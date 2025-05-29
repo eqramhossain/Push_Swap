@@ -6,7 +6,7 @@
 /*   By: ehossain <ehossain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:29:22 by ehossain          #+#    #+#             */
-/*   Updated: 2025/05/12 18:38:28 by ehossain         ###   ########.fr       */
+/*   Updated: 2025/05/29 10:47:04 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int ac, char *av[])
 // 	head = *lst;
 // 	while (head)
 // 	{
-// 		printf("[%d]-->", head->value);
+// 		ft_printf("[%d]-->", head->value);
 // 		head = head->next;
 // 	}
 // }
